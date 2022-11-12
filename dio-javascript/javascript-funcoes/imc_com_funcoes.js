@@ -5,15 +5,15 @@ function calcularImc(peso, altura) {
 function classificarImc(imc) {
 
     if (imc < 18.5) {
-        return('Abaixo do peso');
+        return ('Abaixo do peso');
     } else if (imc >= 18.5 && imc < 25) {
-        return('Peso normal');
+        return ('Peso normal');
     } else if (imc >= 25 && imc < 30) {
-        return('Acima do peso');
+        return ('Acima do peso');
     } else if (imc >= 30 && imc <= 40) {
-        return('Obesidade');
+        return ('Obesidade');
     } else {
-        return('Obesidade grave');
+        return ('Obesidade grave');
     }
 
 }
