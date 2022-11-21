@@ -1,6 +1,7 @@
 const pokemonList = document.getElementById('pokemonList')
 const loadMoreButton = document.getElementById('loadMoreButton')
 
+
 const maxRecords = 151
 const limit = 10
 let offset = 0;
@@ -8,15 +9,17 @@ let offset = 0;
 function convertPokemonToLi(pokemon) {
   return `
         <li class="pokemon ${pokemon.type}">
-            <span class="number">#${pokemon.number}</span>
-            <span class="name">${pokemon.name}</span>
-            <div class="detail">
-                <ol class="types">
-                    ${pokemon.types.map((type) => `<li class="type ${type}">${type}</li>`).join('')}
-                </ol>
-                <img src="${pokemon.photo}"
-                     alt="${pokemon.name}">
-            </div>
+        <span class="number">#${pokemon.number}</span>
+        <span class="name">${pokemon.name}</span>
+        <div class="detail">
+        <ol class="types" class="abilities">
+        ${pokemon.types.map((type) => `<li class="type ${type}">${type}</li>`).join('')}
+        <a href='https://pokemythology.net/conteudo/informacoes/lista_habilidades_backup.htm'><button>abilities</button></a>
+        ${pokemon.abilities.map((ability) => `<li class="ability ${ability}">${ability}</li>`).join('')}
+        </ol>
+        <img src="${pokemon.photo}"
+        alt="${pokemon.name}">
+        </div>
         </li>
     `
 }
@@ -43,3 +46,4 @@ loadMoreButton.addEventListener('click', () => {
     loadPokemonItens(offset, limit)
   }
 })
+
