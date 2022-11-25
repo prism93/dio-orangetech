@@ -2,31 +2,27 @@ const pokemonList = document.getElementById('pokemonList')
 const loadMoreButton = document.getElementById('loadMoreButton')
 
 
-const maxRecords = 151
+const maxRecords = 248
 const limit = 10
-let offset = 0;
+let offset = 0
 
-function convertPokemonToLi(pokemon) {
-  return `
+
+function loadPokemonItens(offset, limit) {
+  pokeApi.getPokemons(offset, limit).then((pokemons = []) => {
+    const newHtml = pokemons.map((pokemon) => `
         <li class="pokemon ${pokemon.type}">
         <span class="number">#${pokemon.number}</span>
         <span class="name">${pokemon.name}</span>
         <div class="detail">
-        <ol class="types" class="abilities">
+        <ol class="types">
         ${pokemon.types.map((type) => `<li class="type ${type}">${type}</li>`).join('')}
-        <a href='https://pokemythology.net/conteudo/informacoes/lista_habilidades_backup.htm'><button>abilities</button></a>
-        ${pokemon.abilities.map((ability) => `<li class="ability ${ability}">${ability}</li>`).join('')}
+        <a href='/cards.html'><button>more</button></a>
         </ol>
         <img src="${pokemon.photo}"
         alt="${pokemon.name}">
         </div>
         </li>
-    `
-}
-
-function loadPokemonItens(offset, limit) {
-  pokeApi.getPokemons(offset, limit).then((pokemons = []) => {
-    const newHtml = pokemons.map(convertPokemonToLi).join('')
+    `).join('')
     pokemonList.innerHTML += newHtml
   })
 }

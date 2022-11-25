@@ -6,13 +6,14 @@ h1 {
 }
 
 h1 button {
+    border-style: solid red;
+    border-width: 1px;
     padding: .50rem 1rem;
     margin: .25rem 0;
-    font-size: .625rem;
-    color: #fff;
+    font-size: 1rem;
+    color: red;
     border: 1rem;
-    border-color: #000;
-    background-color: red;
+    background-color: white;
     align-self: center;
 
 }
@@ -119,17 +120,18 @@ li {
 .pokemon .name {
     text-transform: capitalize;
     color: #fff;
-    margin-bottom: .25rem;
+    margin-bottom: 1rem;
 }
+
 
 .pokemon .detail {
     display: flex;
-    flex-direction: row;
-    align-items: center;
+    flex-direction: row-reverse;
     justify-content: space-between;
 }
 
 .pokemon .detail .types {
+    width: 60%;
     padding: 0;
     margin: 0;
     list-style: none;
@@ -147,8 +149,8 @@ li {
 
 .pokemon .detail .types button {
     color: rgb(254, 254, 254);
-    margin-top: 3rem;
-    width: 5rem;
+    margin-top: 1rem;
+    width: 100%;
     height: 1.5rem;
     border-radius: 1rem;
     background: rgb(139, 138, 138);
@@ -173,9 +175,45 @@ li {
 }
 
 
+table {
+    margin-top: 1rem;
+    width: 100%;
+}
 
-.pokemon .detail img {
-    width: 50%;
+td {
+    border-top: 10px;
+    border: 1px;
+    border-radius: 1rem;
+    color: rgb(65, 64, 64);
+    background-color: white;
+    text-align: center;
+    padding: 8px;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 12px;
+    text-transform: lowercase;
+
+
+
+}
+
+th {
+    border-radius: 1rem;
+    border: 1px;
+    margin-top: 3rem;
+    color: white;
+    background-color: rgb(215, 207, 207);
+    text-align: center;
+    padding: 8px;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 14px;
+    text-transform: lowercase;
+
+}
+
+.pokemon img {
+    padding-bottom: 15px;
+    width: 30%;
+    align-self: center;
 
 }
 
@@ -218,6 +256,6 @@ li {
 
 @media screen and (min-width: 1382px) {
     .pokemons {
-        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     }
 }

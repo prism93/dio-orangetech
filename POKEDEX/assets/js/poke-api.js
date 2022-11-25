@@ -32,8 +32,15 @@ function convertPokeApiDetailToPokemon(pokeDetail) {
     pokemon.abilities = abilities
     pokemon.ability = ability
 
+    pokemon.hp = pokeDetail.stats[0].base_stat
+    pokemon.atk = pokeDetail.stats[1].base_stat
+    pokemon.def = pokeDetail.stats[2].base_stat
+    pokemon.spAtk = pokeDetail.stats[3].base_stat
+    pokemon.spDef = pokeDetail.stats[4].base_stat
+    pokemon.speed = pokeDetail.stats[5].base_stat
 
-    pokemon.photo = pokeDetail.sprites.front_default
+    pokemon.photo = pokeDetail['sprites']['other']['official-artwork']['front_default']
+    pokemon.gif = pokeDetail['sprites']['versions']['generation-v']['black-white']['animated']['front_default']
 
     return pokemon
 }
