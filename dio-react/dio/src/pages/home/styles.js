@@ -9,7 +9,7 @@ export const Container = styled.main`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-itens: center;
+    align-items: center;
 `
 
 export const Title = styled.h2`
@@ -24,7 +24,7 @@ export const Title = styled.h2`
     color: #FFFFFF;
 `
 export const TitleHighLight = styled.span`
-    color: #E4105D
+    color: #E4105D;
 `
 
 export const TextContent = styled.p`

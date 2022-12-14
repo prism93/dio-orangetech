@@ -1,30 +1,30 @@
-import { MdEmail, MdLock } from 'react-icons/md';
 import { useNavigate  } from "react-router-dom";
-import { useForm } from "react-hook-form";
-import {yupResolver} from '@hookform/resolvers/yup';
-import * as yup from "yup";
-
+import { MdEmail, MdLock } from 'react-icons/md';
 import { Button } from '../../components/Button';
 import { Header } from '../../components/Header';
 import { Input } from '../../components/Input';
-
 import { api } from '../../services/api';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from "yup";
 
-import { Container, Title, Column, TitleLogin, SubtitleLogin, EsqueciText, CriarText, Row, Wrapper } from './styles';
+import { useForm } from "react-hook-form";
+
+
+import { Container, ErrorText, Title, Column, TitleLogin, SubtitleLogin, EsqueciText, CriarText, Row, Wrapper } from './styles';
+
 
 const schema = yup.object({
-    email: yup.string().email('email não é válido').required('Campo obrigatório'),
-    password: yup.string().min(3, 'No minimo 3 caracteres').required('Campo obrigatório'),
+    email: yup.string().email('Email não é válido!!!').required('Campo Obrigatório'),
+    password: yup.string().min(3, 'No mínimo 3 caracteres!!!').required('Campo Obrigatório'),
   }).required();
-  
- 
+
+
 const Login = () => {
 
     const navigate = useNavigate()
 
-    const { control, handleSubmit, formState: { errors  } } = useForm({
+    const { control, handleSubmit, formState: { errors, isValid } } = useForm({
         resolver: yupResolver(schema),
-        reValidateMode: 'onChange',
         mode: 'onChange',
     });
 
@@ -37,8 +37,8 @@ const Login = () => {
                 return
             }
 
-            alert('Usuário ou senha inválido')
         }catch(e){
+            alert('Usuário ou senha inválido')
         }
     };
 
@@ -56,10 +56,8 @@ const Login = () => {
                 <TitleLogin>Faça seu cadastro</TitleLogin>
                 <SubtitleLogin>Faça seu login e make the change._</SubtitleLogin>
                 <form onSubmit={handleSubmit(onSubmit)}>
-                    <Input placeholder="E-mail" leftIcon={<MdEmail />} name="email" errorMessage={errors?.email?.message}  control={control} />
-                    {errors.email && <span>E-mail é obrigatório</span>}
-                    <Input type="password" placeholder="Senha" leftIcon={<MdLock />}  name="senha" errorMessage={errors?.password?.message} control={control}  />
-                    {errors.senha && <span>Senha é obrigatório</span>}
+                    <Input placeholder="E-mail" leftIcon={<MdEmail />} name="email" errorMessage={errors?.email?.message} control={control} />
+                    <Input type="password" placeholder="Senha" leftIcon={<MdLock />}  name="password"  errorMessage={errors?.password?.message} control={control} />
                     <Button title="Entrar" variant="secondary" type="submit"/>
                 </form>
                 <Row>
@@ -73,4 +71,3 @@ const Login = () => {
 }
 
 export { Login }
-

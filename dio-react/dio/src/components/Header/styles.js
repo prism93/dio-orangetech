@@ -7,20 +7,20 @@ export const Container = styled.div`
 
     display: flex;
     justify-content: space-between;
-    align-itens: center;
+    align-items: center;
     margin: 0 auto;
 `
 
 export const Row = styled.div`
     display: flex;
     flex-direction: row;
-    align-itens: center;
+    align-items: center;
 `
 
 export const Column = styled.div`
     display: flex;
     flex-direction: column;
-    align-itens: center;
+    align-items: center;
 `
 
 export const Wrapper = styled.div`
@@ -29,7 +29,7 @@ export const Wrapper = styled.div`
     height: 47px;
     display: flex;
     justify-content: center;
-    align-itens: center;
+    align-items: center;
 `
 
 export const BuscarInputContainer = styled.div`
@@ -41,7 +41,7 @@ export const BuscarInputContainer = styled.div`
     margin: 0 12px; 
 
     display: flex;
-    align-item: center;
+    align-items: center;
     justify-content: center;
 `
 

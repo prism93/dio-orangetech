@@ -13,7 +13,6 @@ const Input = ({leftIcon, name, control, errorMessage, ...rest}) => {
         <Controller
         name={name}
         control={control}
-        rules = {{required: true}}
         render={({ field }) =>  <InputText {...field} {...rest} />}
       />
     </InputContainer>

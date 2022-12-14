@@ -15,9 +15,8 @@ const Home = () => {
     }
 
     return (<>
-    <Header />
-    <Container>
-        <div>
+        <Header />
+        <Container>
             <div>
                 <Title>
                     <TitleHighLight>
@@ -31,11 +30,11 @@ const Home = () => {
                 </TextContent>
                 <Button title="Começar agora" variant="secondary" onClick={handleClickSignIn}/>
             </div>
-            <img src={bannerImage} alt="Imagem principal"/>
-        </div>
-    </Container>
-   </>
-    )
+            <div>
+                <img src={bannerImage} alt="Imagem principal"/>
+            </div>
+        </Container>
+    </>) 
 }
 
 export {Home}
